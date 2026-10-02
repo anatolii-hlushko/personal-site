@@ -61,11 +61,12 @@ h1 em,h2 em{font-family:'Caveat',cursive;font-weight:700;letter-spacing:-.035em;
 @media(max-width:1150px){.hero-layout{grid-template-columns:minmax(250px,1fr) minmax(300px,1.1fr);gap:24px;min-height:690px}.hero-portrait{height:570px}.hero-side{grid-column:span 2;display:grid;grid-template-columns:1fr 1fr;gap:12px 28px;padding:0 0 38px;align-items:center}.hero-side .side-overline{grid-column:span 2;margin:0}.hero-side h2{margin:0}.hero-side>p:not(.side-overline){margin:0}.hero-side .button{justify-self:start}.hero-facts{grid-column:2;margin:0}.hero-spark-one{left:55%}}
 @media(max-width:740px){.site-header{padding:15px 18px}.site-header .brand{font-size:15px}.hero-layout{width:min(100% - 36px,700px);display:flex;flex-direction:column;gap:0;min-height:0;padding:32px 0 60px}.hero-copy{width:100%;padding:15px 0 32px}.hero h1{font-size:clamp(68px,15vw,98px)}.hero-intro{max-width:600px}.hero-portrait{order:2;width:min(100% - 22px,480px);height:520px;margin:0 auto 48px;box-shadow:15px 17px 0 #ead0e3}.hero-side{order:3;display:block;width:100%;padding:10px 0 0}.hero-side h2{font-size:clamp(36px,9vw,54px);max-width:530px;margin:12px 0 18px}.hero-side>p:not(.side-overline){font-size:16px;margin:0 0 18px}.hero-facts{margin-top:38px}.hero-spark-one{font-size:60px;top:35%;left:3%}.hero-spark-two{bottom:9%;left:auto;right:5%}.hero-strip{min-height:0}.section{padding-top:79px}.project-card,.project-card.featured{border-radius:22px}.project-card.featured .project-image{min-height:0;height:300px}.project-image,.project-record{height:260px}.project-body,.featured .project-body{padding:25px}.featured h3,.project-card h3{font-size:34px}.experience-band{padding:80px 0}.about-photo{max-width:430px}.about-photo img{height:500px}.section-heading h2,.experience-layout h2,.about h2{font-size:clamp(48px,11vw,66px)}}
 
-/* Let cards of different heights pack vertically without leaving grid-row gaps. */
+/* Keep full-width cards outside the columns so they cannot leave empty column space. */
+.featured-grid{display:grid;gap:24px;margin-bottom:24px}
+.featured-grid .project-card.featured{grid-column:auto;display:grid;grid-template-columns:1fr 1fr;width:100%;margin-bottom:0}
 .project-grid{display:block;columns:2;column-gap:24px}
-.project-card{display:inline-flex;width:100%;break-inside:avoid;page-break-inside:avoid;margin-bottom:24px;vertical-align:top}
-.project-card.featured{display:grid;column-span:all;width:100%;margin-bottom:24px}
-@media(max-width:740px){.project-grid{columns:1}.project-card{margin-bottom:20px}.project-card.featured{display:flex;margin-bottom:20px}}
+.project-grid .project-card{display:inline-flex;width:100%;break-inside:avoid;page-break-inside:avoid;margin-bottom:24px;vertical-align:top}
+@media(max-width:740px){.featured-grid{gap:20px;margin-bottom:20px}.featured-grid .project-card.featured{display:flex}.project-grid{columns:1}.project-grid .project-card{margin-bottom:20px}}
 @media(max-width:420px){.hero h1{font-size:clamp(64px,16vw,79px)}.hero-portrait{height:455px}.hero-facts span{font-size:10px}.hero-side h2{font-size:38px}}
 @media(prefers-reduced-motion:reduce){.hero-portrait,.hero-spark{transform:none}.project-image img{transition:none}}
 @keyframes portrait-bob{0%,100%{transform:rotate(-2deg) translateY(0)}50%{transform:rotate(-2deg) translateY(-8px)}}
